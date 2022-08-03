@@ -14,9 +14,13 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
 
-@dp.message_handler(commands=['start', 'help'])
+@dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-    await message.reply("Assalammmu alaykum!\n Wikipedia botiga xush kelibsiz")
+    await message.reply("Assalamu alaykum!\n Wikipedia botiga xush kelibsiz")
+
+@dp.message_handler(commands=['help'])
+async def help(message: types.Message):
+    await message.reply('Sizga qanday yordam berishimiz mumkin')
 
 @dp.message_handler()
 async def sendWiki(message: types.Message):
